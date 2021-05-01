@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactible
   - EnemyProjectile
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -11,6 +11,7 @@ public class PlayerMovement2D : MonoBehaviour
     [SerializeField] float speed = 3;
     Vector2 movement;
     Animator animator;
+    private float attackCooldown;
 
     private void Awake()
     {
@@ -30,7 +31,10 @@ public class PlayerMovement2D : MonoBehaviour
         {
             controller.Move(movement * speed * Time.deltaTime);
         }
-		animator.SetBool("IsMoving", movement.magnitude > 0.001f);
+
+		animator.SetBool("IsMoving", movement.magnitude > 0.001);
+        if (attackCooldown > 0)
+            attackCooldown -= Time.deltaTime;
     }
 
     public void MovementListener(CallbackContext context)
@@ -40,8 +44,11 @@ public class PlayerMovement2D : MonoBehaviour
 
     public void AttackListener(CallbackContext context)
     {
-        if(context.ReadValueAsButton() == true && context.performed == false)
-            StartCoroutine(CombatController.Attack());
+        if (context.ReadValueAsButton() == true && context.performed == false && attackCooldown <= 0)
+        {
+            CombatController.Attack();
+            attackCooldown = .2f;
+        }
         
     }
 }
