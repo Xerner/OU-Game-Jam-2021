@@ -5,11 +5,13 @@ public class CharacterController2D : MonoBehaviour
 	//[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+	Animator animator;
 
     private void Awake()
     {
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
+		animator = GetComponent<Animator>();
     }
 
     public void Move(Vector2 move)
@@ -26,7 +28,8 @@ public class CharacterController2D : MonoBehaviour
 			// ... flip the player.
 			Flip();
 		}
-		transform.position += new Vector3(move.x, move.y, 0);
+		transform.position += new Vector3(move.x, move.y, 0f);
+		animator.SetBool("IsMoving", move.magnitude > 0.001);
 	}
 
 
