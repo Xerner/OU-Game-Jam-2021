@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2107969279423352067}
   - component: {fileID: 1554357327}
   - component: {fileID: 1554357319}
-  - component: {fileID: 6949261910518911766}
+  - component: {fileID: 1292148463593628518}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -279,10 +279,24 @@ MonoBehaviour:
     m_Id: 42920385-d60f-494f-9364-56668f1b78af
     m_Processors: 
     m_Interactions: 
+<<<<<<< HEAD
     m_SingletonActionBindings: []
   InteractionPopup: {fileID: 0}
 --- !u!60 &6949261910518911766
 PolygonCollider2D:
+=======
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 537b4ae5-0209-4161-a49a-fb8258f1c353
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Interact
+      m_Flags: 0
+--- !u!61 &1292148463593628518
+BoxCollider2D:
+>>>>>>> 776cd356577e5569bd087a903bb4191d90c9bdd9
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -304,31 +318,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.075376615, y: 0.30157512}
-      - {x: 0.018858671, y: 0.32119617}
-      - {x: -0.0035619177, y: 0.32251397}
-      - {x: -0.072515115, y: 0.31271422}
-      - {x: -0.12496534, y: 0.24345586}
-      - {x: -0.11586701, y: 0.10173397}
-      - {x: -0.16534273, y: 0.07323481}
-      - {x: -0.1659785, y: -0.0927416}
-      - {x: -0.14827691, y: -0.095751286}
-      - {x: -0.14690743, y: -0.13730983}
-      - {x: -0.10214635, y: -0.14612727}
-      - {x: -0.10063571, y: -0.2946972}
-      - {x: -0.07262031, y: -0.32377508}
-      - {x: 0.087059304, y: -0.32016695}
-      - {x: 0.09730381, y: -0.3086537}
-      - {x: 0.105492964, y: -0.13522881}
-      - {x: 0.1456789, y: -0.14326188}
-      - {x: 0.14460436, y: -0.09974595}
-      - {x: 0.16482072, y: -0.09820435}
-      - {x: 0.15989743, y: 0.06394783}
-      - {x: 0.13710906, y: 0.09814323}
-      - {x: 0.08704313, y: 0.100462295}
-      - {x: 0.082999855, y: 0.11862876}
-      - {x: 0.13636616, y: 0.16420513}
-      - {x: 0.1357851, y: 0.22389364}
-      - {x: 0.116206676, y: 0.2664748}
+  serializedVersion: 2
+  m_Size: {x: 0.32, y: 0.64}
+  m_EdgeRadius: 0

@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Interactible
+<<<<<<< HEAD
   - Notification
+=======
+  - EnemyProjectile
+>>>>>>> 776cd356577e5569bd087a903bb4191d90c9bdd9
   layers:
   - Default
   - TransparentFX
