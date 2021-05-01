@@ -84,13 +84,6 @@ public class CharacterController2D : MonoBehaviour
         return scale.x > 0;
     }
 
-    private bool GunArmOnLeftSide()
-    {
-		bool onleftside = transform.localScale.x > 0 && GunArm.localPosition.x > 0 || transform.localScale.x < 0 && GunArm.localPosition.x < 0; ;
-		Debug.Log("On Left Side: " + onleftside);
-		return onleftside;
-	}
-
     public void ChangeCombatMode(bool ranged)
     {
 		combatController.IsRanged = ranged;
