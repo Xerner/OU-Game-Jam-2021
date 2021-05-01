@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 6c17dcae0c90ac044bf136f85dd2e620, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9811321, g: 0.22895056, b: 0.0786757, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -271,23 +271,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d4105873e5b1f844a0ccfa41e1b3fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentObj: {fileID: 0}
-  interactAction:
-    m_Name: Interact
+  CurrentInteractable: {fileID: 0}
+  InteractAction:
+    m_Name: 
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: 09b1721d-518b-4ea0-99b2-25eb0db7e2b4
+    m_Id: 42920385-d60f-494f-9364-56668f1b78af
     m_Processors: 
     m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 537b4ae5-0209-4161-a49a-fb8258f1c353
-      m_Path: <Keyboard>/e
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Interact
-      m_Flags: 0
+    m_SingletonActionBindings: []
+  InteractionPopup: {fileID: 0}
 --- !u!60 &6949261910518911766
 PolygonCollider2D:
   m_ObjectHideFlags: 0

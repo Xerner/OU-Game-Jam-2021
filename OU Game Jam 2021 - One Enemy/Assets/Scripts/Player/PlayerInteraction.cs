@@ -6,25 +6,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public GameObject currentObj;
-    public InputAction interactAction;
+    public GameObject CurrentInteractable;
+    public InputAction InteractAction;
+    [SerializeField]
+    private GameObject InteractionPopup;
+    private Transform CurrentInteractableLocation;
+    private GameObject InstantiatedInteractable;
+
+
     private void Start()
     {
-        interactAction.Enable();
+        InteractAction.Enable();
+       
+
     }
     private void Update()
     {
-        if(interactAction.triggered && currentObj)
+        if(InteractAction.triggered && CurrentInteractable)
         {
-            currentObj.SendMessage("PlayerInteraction");
+            CurrentInteractable.SendMessage("PlayerInteraction");
         }
+
+       
     }
 
     void OnTriggerEnter2D(Collider2D obj)
     {
         if (obj.CompareTag("Interactible"))
         {
-            currentObj = obj.gameObject;
+            CurrentInteractable = obj.gameObject;
+            CurrentInteractableLocation = obj.transform;
+            InstantiatedInteractable = Instantiate(InteractionPopup,
+                   new Vector2(CurrentInteractableLocation.position.x,
+                   CurrentInteractableLocation.position.y +1f),
+                   Quaternion.identity);
         }
      
         
@@ -32,9 +47,14 @@ public class PlayerInteraction : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D obj)
     {
-        if (obj.CompareTag("Interactible") && obj.gameObject == currentObj)
+        if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
         {
-            currentObj = null;
+            CurrentInteractable = null;
+            CurrentInteractableLocation = null;
+        }
+        if (!CurrentInteractable)
+        {
+            InstantiatedInteractable.SetActive(false);
         }
 
 
