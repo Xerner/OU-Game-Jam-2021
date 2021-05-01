@@ -7,6 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerMovement2D : MonoBehaviour
 {
     CharacterController2D controller;
+    PlayerCombatController CombatController;
     [Range(1, 10)]
     [SerializeField] float speed = 3;
     Vector2 movement;
@@ -14,6 +15,7 @@ public class PlayerMovement2D : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController2D>();
+        CombatController = GetComponent<PlayerCombatController>();
     }
 
     private void Start()
@@ -35,6 +37,12 @@ public class PlayerMovement2D : MonoBehaviour
     public void MovementListener(CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
-        //Debug.Log(movement);
+    }
+
+    public void AttackListener(CallbackContext context)
+    {
+        if(context.ReadValueAsButton() == true && context.performed == false)
+            StartCoroutine(CombatController.Attack());
+        
     }
 }
