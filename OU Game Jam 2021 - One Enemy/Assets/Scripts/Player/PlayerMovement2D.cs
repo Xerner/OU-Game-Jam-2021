@@ -11,11 +11,13 @@ public class PlayerMovement2D : MonoBehaviour
     [Range(1, 10)]
     [SerializeField] float speed = 3;
     Vector2 movement;
+    Animator animator;
 
     private void Awake()
     {
         controller = GetComponent<CharacterController2D>();
         CombatController = GetComponent<PlayerCombatController>();
+		animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -31,6 +33,7 @@ public class PlayerMovement2D : MonoBehaviour
         {
             controller.Move(movement * speed * Time.deltaTime);
         }
+		animator.SetBool("IsMoving", movement.magnitude > 0.001);
     }
 
     // Update is called once per frame

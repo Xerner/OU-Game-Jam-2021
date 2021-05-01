@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Labratory tiles
   m_EditorClassIdentifier: 
   AtlasTexture: {fileID: 2800000, guid: 36cf29d44da17194bbc6cdca0ba540d5, type: 3}
-  TilePxSize: {x: 32, y: 32}
+  TilePxSize: {x: 64, y: 64}
   SliceOffset: {x: 0, y: 0}
   SlicePadding: {x: 0, y: 0}
   BackgroundColor: {r: 0.8039216, g: 0.8039216, b: 0.8039216, a: 0.8039216}
-  VisualTileSize: {x: 32, y: 32}
+  VisualTileSize: {x: 44.16, y: 44.16}
   VisualTilePadding: 1
   TileRowLength: 8
   m_tileViews: []
@@ -38,8 +38,8 @@ MonoBehaviour:
       - {x: 0, y: 0}
       - {x: 0, y: 1}
       - {x: 1, y: 1}
-      - {x: 1, y: 0.75}
-      - {x: 0.25, y: 0.75}
+      - {x: 1, y: 0.625}
+      - {x: 0.25, y: 0.625}
       - {x: 0.25, y: 0}
       type: 2
     paramContainer:
@@ -60,10 +60,10 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0, y: 0.75}
+      - {x: 0, y: 0.609375}
       - {x: 0, y: 1}
       - {x: 1, y: 1}
-      - {x: 1, y: 0.75}
+      - {x: 1, y: 0.609375}
       type: 2
     paramContainer:
       m_paramList: []
@@ -84,8 +84,8 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0.75, y: 0}
-      - {x: 0.75, y: 0.75}
-      - {x: 0, y: 0.75}
+      - {x: 0.75, y: 0.609375}
+      - {x: 0, y: 0.609375}
       - {x: 0, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0}
@@ -114,7 +114,7 @@ MonoBehaviour:
       - {x: 1, y: 0.75}
       - {x: 0.25, y: 0.75}
       - {x: 0.25, y: 0}
-      type: 2
+      type: 1
     paramContainer:
       m_paramList: []
     prefabData:
@@ -137,7 +137,7 @@ MonoBehaviour:
       - {x: 0, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0.75}
-      type: 2
+      type: 1
     paramContainer:
       m_paramList: []
     prefabData:
@@ -162,7 +162,7 @@ MonoBehaviour:
       - {x: 1, y: 0}
       - {x: 0.75, y: 0}
       - {x: 0.75, y: 0.75}
-      type: 2
+      type: 1
     paramContainer:
       m_paramList: []
     prefabData:
@@ -207,8 +207,12 @@ MonoBehaviour:
       width: 0.125
       height: 0.14285715
     collData:
-      vertices: []
-      type: 1
+      vertices:
+      - {x: 0, y: 0}
+      - {x: 0, y: 0.703125}
+      - {x: 1, y: 0.703125}
+      - {x: 1, y: 0}
+      type: 2
     paramContainer:
       m_paramList: []
     prefabData:
@@ -228,8 +232,8 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0, y: 0}
-      - {x: 0, y: 1}
-      - {x: 0.25, y: 1}
+      - {x: 0, y: 0.703125}
+      - {x: 0.25, y: 0.703125}
       - {x: 0.25, y: 0}
       type: 2
     paramContainer:
@@ -270,8 +274,8 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0.75, y: 0}
-      - {x: 0.75, y: 1}
-      - {x: 1, y: 1}
+      - {x: 0.75, y: 0.703125}
+      - {x: 1, y: 0.703125}
       - {x: 1, y: 0}
       type: 2
     paramContainer:
@@ -310,7 +314,11 @@ MonoBehaviour:
       width: 0.125
       height: 0.14285715
     collData:
-      vertices: []
+      vertices:
+      - {x: 0, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 1, y: 0}
       type: 1
     paramContainer:
       m_paramList: []
@@ -350,10 +358,10 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0, y: 0}
-      - {x: 0, y: 1}
-      - {x: 1, y: 1}
+      - {x: 0, y: 0.703125}
+      - {x: 1, y: 0.703125}
       - {x: 1, y: 0}
-      type: 1
+      type: 2
     paramContainer:
       m_paramList: []
     prefabData:
@@ -420,7 +428,7 @@ MonoBehaviour:
       - {x: 0, y: 0.25}
       - {x: 1, y: 0.25}
       - {x: 1, y: 0}
-      type: 2
+      type: 0
     paramContainer:
       m_paramList: []
     prefabData:
@@ -439,9 +447,7 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0, y: 0}
-      - {x: 0, y: 0.25}
-      - {x: 0.75, y: 0.25}
+      - {x: 0.75, y: 0}
       - {x: 0.75, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0}
@@ -482,7 +488,11 @@ MonoBehaviour:
       width: 0.125
       height: 0.14285715
     collData:
-      vertices: []
+      vertices:
+      - {x: 0, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 1, y: 0}
       type: 1
     paramContainer:
       m_paramList: []
@@ -563,7 +573,7 @@ MonoBehaviour:
       - {x: 0.75, y: 0.25}
       - {x: 1, y: 0.25}
       - {x: 1, y: 0}
-      type: 2
+      type: 0
     paramContainer:
       m_paramList: []
     prefabData:
@@ -609,7 +619,7 @@ MonoBehaviour:
       - {x: 0, y: 0.25}
       - {x: 0.25, y: 0.25}
       - {x: 0.25, y: 0}
-      type: 2
+      type: 0
     paramContainer:
       m_paramList: []
     prefabData:
@@ -627,7 +637,11 @@ MonoBehaviour:
       width: 0.125
       height: 0.14285715
     collData:
-      vertices: []
+      vertices:
+      - {x: 0, y: 0}
+      - {x: 0, y: 1}
+      - {x: 1, y: 1}
+      - {x: 1, y: 0}
       type: 1
     paramContainer:
       m_paramList: []
@@ -791,9 +805,7 @@ MonoBehaviour:
       - {x: 0, y: 0}
       - {x: 0, y: 1}
       - {x: 0.25, y: 1}
-      - {x: 0.25, y: 0.25}
-      - {x: 1, y: 0.25}
-      - {x: 1, y: 0}
+      - {x: 0.25, y: 0}
       type: 2
     paramContainer:
       m_paramList: []
@@ -907,10 +919,10 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0.75, y: 0.75}
+      - {x: 0.75, y: 0.609375}
       - {x: 0.75, y: 1}
       - {x: 1, y: 1}
-      - {x: 1, y: 0.75}
+      - {x: 1, y: 0.609375}
       type: 2
     paramContainer:
       m_paramList: []
@@ -953,10 +965,10 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0, y: 0.75}
+      - {x: 0, y: 0.609375}
       - {x: 0, y: 1}
       - {x: 0.25, y: 1}
-      - {x: 0.25, y: 0.75}
+      - {x: 0.25, y: 0.609375}
       type: 2
     paramContainer:
       m_paramList: []
@@ -1001,12 +1013,12 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0.75, y: 0}
-      - {x: 0.75, y: 0.75}
       - {x: 0, y: 0.75}
       - {x: 0, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0}
+      - {x: 0.75, y: 0}
+      - {x: 0.75, y: 0.75}
       type: 2
     paramContainer:
       m_paramList: []
@@ -1054,9 +1066,7 @@ MonoBehaviour:
       - {x: 0, y: 0}
       - {x: 0, y: 1}
       - {x: 0.25, y: 1}
-      - {x: 0.25, y: 0.25}
-      - {x: 1, y: 0.25}
-      - {x: 1, y: 0}
+      - {x: 0.25, y: 0}
       type: 2
     paramContainer:
       m_paramList: []
@@ -1148,13 +1158,9 @@ MonoBehaviour:
       - {x: 0, y: 0.75}
       - {x: 0, y: 1}
       - {x: 0.25, y: 1}
-      - {x: 0.25, y: 0.78125}
-      - {x: 0.78125, y: 0.25}
       - {x: 1, y: 0.25}
       - {x: 1, y: 0}
       - {x: 0.75, y: 0}
-      - {x: 0.75, y: 0.21875}
-      - {x: 0.21875, y: 0.75}
       type: 2
     paramContainer:
       m_paramList: []
@@ -1176,13 +1182,9 @@ MonoBehaviour:
       vertices:
       - {x: 0, y: 0}
       - {x: 0, y: 0.25}
-      - {x: 0.21875, y: 0.25}
-      - {x: 0.75, y: 0.78125}
       - {x: 0.75, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0.75}
-      - {x: 0.78125, y: 0.75}
-      - {x: 0.25, y: 0.21875}
       - {x: 0.25, y: 0}
       type: 2
     paramContainer:
@@ -1203,12 +1205,12 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0.75, y: 0}
-      - {x: 0.75, y: 0.75}
       - {x: 0, y: 0.75}
       - {x: 0, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0}
+      - {x: 0.75, y: 0}
+      - {x: 0.75, y: 0.75}
       type: 2
     paramContainer:
       m_paramList: []
