@@ -12,6 +12,7 @@ public class EnemyTestController : MonoBehaviour
     private bool hasLungeFinished = true;
     private float swipeRange = 2f;
     private Vector2 LungeDestination;
+    private int health = 10000;
 
 
     // Update is called once per frame
@@ -48,7 +49,7 @@ public class EnemyTestController : MonoBehaviour
 
     private void HandleLunge()
     {
-        transform.position = Vector2.MoveTowards(transform.position, LungeDestination, .02f);
+        transform.position = Vector2.MoveTowards(transform.position, LungeDestination, .08f);
     }
 
     IEnumerator Lunge()
@@ -81,5 +82,9 @@ public class EnemyTestController : MonoBehaviour
         }
         yield return new WaitForSeconds(3f);
         isPerformingAttack = false;
+    }
+    public void HandleDamage()
+    {
+            health -= 100;
     }
 }
