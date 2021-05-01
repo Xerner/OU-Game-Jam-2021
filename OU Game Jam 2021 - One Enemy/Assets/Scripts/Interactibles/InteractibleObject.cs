@@ -12,6 +12,10 @@ public class InteractibleObject : MonoBehaviour
         Debug.Log("here");
         gameObject.SetActive(false);
     }
+    public void BossInteraction()
+    {
+
+    }
     void Start()
     {
         
