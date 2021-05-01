@@ -40,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
                    CurrentInteractableLocation.position.y +1f),
                    Quaternion.identity);
         }
-        else if(obj.CompareTag("Enemy") || obj.CompareTag("Enemy Projectile"))
+        else if(obj.CompareTag("Enemy") || obj.CompareTag("EnemyProjectile"))
         {
             FindObjectOfType<PlayerCombatController>().ReduceHealth();
         }
@@ -52,7 +52,7 @@ public class PlayerInteraction : MonoBehaviour
     {
 
 
-        if (obj.CompareTag("Enemy") != true)
+        if (obj.CompareTag("EnemyP1") != true && obj.CompareTag("EnemyP2") != true && obj.CompareTag("EnemyProjectile") != true)
         {
             Destroy(InstantiatedInteractable);
             if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)

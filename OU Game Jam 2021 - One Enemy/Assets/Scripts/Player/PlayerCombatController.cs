@@ -19,6 +19,8 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private Phase1EnemyController enemy;
     [SerializeField]
+    private EnemyTestController enemyp2;
+    [SerializeField]
     private SceneLoader sceneLoader;
 
     public void Attack()
@@ -41,8 +43,13 @@ public class PlayerCombatController : MonoBehaviour
     }
     private void CheckForHit(RaycastHit2D hit)
     {
-        if (hit.collider != null)
+        if (hit.collider != null && hit.collider.CompareTag("EnemyP1"))
             enemy.HandleDamage();
+        else if (hit.collider != null && hit.collider.CompareTag("EnemyP2"))
+        {
+
+        }
+           // enemyP2.HandleDamage();
     }
     public void ReduceHealth()
     {
