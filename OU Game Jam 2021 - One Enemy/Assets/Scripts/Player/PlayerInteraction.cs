@@ -54,9 +54,8 @@ public class PlayerInteraction : MonoBehaviour
 
         if (obj.CompareTag("Enemy") != true)
         {
-<<<<<<< Updated upstream
+
             Destroy(InstantiatedInteractable);
-=======
             if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
             {
                 CurrentInteractable = null;
@@ -66,7 +65,6 @@ public class PlayerInteraction : MonoBehaviour
             {
                 InstantiatedInteractable.SetActive(false);
             }
->>>>>>> Stashed changes
         }
 
     }

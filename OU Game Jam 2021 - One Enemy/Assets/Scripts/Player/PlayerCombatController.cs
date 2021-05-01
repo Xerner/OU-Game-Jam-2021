@@ -6,11 +6,7 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerCombatController : MonoBehaviour
 {
-<<<<<<< Updated upstream
-    [SerializeField] private int health = 10;
-    [SerializeField] private Sprite RightArm = null;
     [SerializeField] 
-=======
     public int health = 20;
     [SerializeField]
     private GameObject RightArm = null;
@@ -18,8 +14,6 @@ public class PlayerCombatController : MonoBehaviour
     private Phase1EnemyController enemy;
     [SerializeField]
     private SceneLoader sceneLoader;
->>>>>>> Stashed changes
-    private float attackDelay = 0.5f;
 
     Vector2 aim;
 

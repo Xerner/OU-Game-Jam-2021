@@ -34,17 +34,16 @@ public class PlayerMovement2D : MonoBehaviour
         {
             controller.Move(movement * speed * Time.deltaTime);
         }
-<<<<<<< Updated upstream
 		animator.SetBool("IsMoving", movement.magnitude > 0.001f);
         if (aim.magnitude > 0.01)
         {
             //GunArm.Rotate(new Vector3(0f, 0f, );
         }
-=======
+
 		animator.SetBool("IsMoving", movement.magnitude > 0.001);
         if (attackCooldown > 0)
             attackCooldown -= Time.deltaTime;
->>>>>>> Stashed changes
+
     }
 
     public void MovementListener(CallbackContext context)
