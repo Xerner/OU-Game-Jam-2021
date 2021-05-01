@@ -5,25 +5,16 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerCombatController : MonoBehaviour
 {
-    [SerializeField] private int health = 10;
-    [SerializeField] private Sprite RightArm = null;
-    [SerializeField] 
-    private float attackDelay = 0.5f;
-
-    Vector2 aim;
-
-    [SerializeField] Transform Gun;
-
-    public void LookListener(CallbackContext context)
-    {
-        aim = context.ReadValue<Vector2>();
-        
-    }
+    [Header("Stats")]
+    [SerializeField] int health = 10;
+    [SerializeField] float attackDelay = 0.5f;
+    [HideInInspector] public bool IsRanged = false;
+	[Tooltip("Enables the GunArm and disables the RightArm")]
+    public bool startRanged = false;
 
     public IEnumerator Attack()
     {
         yield return new WaitForSeconds(attackDelay);
         Debug.Log("Attacking!");
     }
-
 }

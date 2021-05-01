@@ -8,10 +8,7 @@ public class PlayerMovement2D : MonoBehaviour
 {
     CharacterController2D controller;
     PlayerCombatController CombatController;
-    [Range(1, 10)]
     [SerializeField] float speed = 3;
-    [SerializeField] Transform GunArm;
-    Vector2 aim;
     Vector2 movement;
     Animator animator;
 
@@ -34,20 +31,11 @@ public class PlayerMovement2D : MonoBehaviour
             controller.Move(movement * speed * Time.deltaTime);
         }
 		animator.SetBool("IsMoving", movement.magnitude > 0.001f);
-        if (aim.magnitude > 0.01)
-        {
-            //GunArm.Rotate(new Vector3(0f, 0f, );
-        }
     }
 
     public void MovementListener(CallbackContext context)
     {
         movement = context.ReadValue<Vector2>();
-    }
-
-    public void AimListener(CallbackContext context)
-    {
-        aim = context.ReadValue<Vector2>();
     }
 
     public void AttackListener(CallbackContext context)
