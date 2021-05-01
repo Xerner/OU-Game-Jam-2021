@@ -477,6 +477,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 69819ab9-42be-4897-821d-316def854c15
     m_ActionName: Player/Attack[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1963e23a-6cf0-4fff-94ea-517c6584903b
+    m_ActionName: Player/Switch Combat Mode[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -494,9 +498,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bda444987e704e42a2b8b56202e5599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunArm: {fileID: 0}
-  LeftArm: {fileID: 0}
-  RightArm: {fileID: 0}
+  GunArm: {fileID: 8666368705432330736}
+  LeftArm: {fileID: 118225811235290639}
+  RightArm: {fileID: 7444712212161249487}
 --- !u!114 &3779167242944161095
 MonoBehaviour:
   m_ObjectHideFlags: 0

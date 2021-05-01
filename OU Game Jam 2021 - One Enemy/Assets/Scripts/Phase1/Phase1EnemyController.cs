@@ -51,7 +51,7 @@ public class Phase1EnemyController : MonoBehaviour
     {
         if (isMoving == true && isVulnerable == false)
         {
-            transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, .04f);
+            transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, .05f);
         }
         if (Vector2.Distance(transform.position, destination.transform.position) < .1f && isMoving == true)
         {
