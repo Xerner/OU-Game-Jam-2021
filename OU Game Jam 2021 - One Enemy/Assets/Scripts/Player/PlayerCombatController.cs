@@ -5,10 +5,9 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class PlayerCombatController : MonoBehaviour
 {
-    [SerializeField]
-    private int health = 10;
-    [SerializeField]
-    private GameObject RightArm = null;
+    [SerializeField] private int health = 10;
+    [SerializeField] private Sprite RightArm = null;
+    [SerializeField] 
     private float attackDelay = 0.5f;
 
     Vector2 aim;
