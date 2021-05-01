@@ -9,6 +9,8 @@
 /OU Game Jam 2021 - One Enemy/[Bb]uilds/
 /OU Game Jam 2021 - One Enemy/[Ll]ogs/
 /OU Game Jam 2021 - One Enemy/[Mm]emoryCaptures/
+/OU Game Jam 2021 - One Enemy/[Uu]serSettings/
+/OU Game Jam 2021 - One Enemy/[Pp]rojectSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/OU Game Jam 2021 - One Enemy/[Aa]ssets/**/*.meta
