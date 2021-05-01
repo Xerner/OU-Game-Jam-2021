@@ -54,6 +54,7 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (!CurrentInteractable)
         {
+            Destroy(InstantiatedInteractable);
             InstantiatedInteractable.SetActive(false);
         }
 
