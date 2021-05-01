@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using static UnityEngine.InputSystem.InputAction;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public class PlayerInteraction : MonoBehaviour
 {
@@ -22,12 +23,10 @@ public class PlayerInteraction : MonoBehaviour
     }
     private void Update()
     {
-        if(InteractAction.triggered && CurrentInteractable)
+        if (InteractAction.triggered && CurrentInteractable && !CurrentInteractable.CompareTag("Enemy"))
         {
             CurrentInteractable.SendMessage("PlayerInteraction");
         }
-
-       
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -41,23 +40,31 @@ public class PlayerInteraction : MonoBehaviour
                    CurrentInteractableLocation.position.y +1f),
                    Quaternion.identity);
         }
-     
-        
+        else if(obj.CompareTag("Enemy") || obj.CompareTag("Enemy Projectile"))
+        {
+            FindObjectOfType<PlayerCombatController>().ReduceHealth();
+        }
+
+
     }
 
     void OnTriggerExit2D(Collider2D obj)
     {
-        if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
-        {
-            CurrentInteractable = null;
-            CurrentInteractableLocation = null;
-        }
-        if (!CurrentInteractable)
+
+
+        if (obj.CompareTag("Enemy") != true)
         {
             Destroy(InstantiatedInteractable);
-            InstantiatedInteractable.SetActive(false);
+            if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
+            {
+                CurrentInteractable = null;
+                CurrentInteractableLocation = null;
+            }
+            if (!CurrentInteractable)
+            {
+                InstantiatedInteractable.SetActive(false);
+            }
         }
-
 
     }
 }

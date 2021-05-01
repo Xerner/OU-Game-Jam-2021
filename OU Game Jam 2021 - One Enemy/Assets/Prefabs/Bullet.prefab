@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 750129267439628495}
   - component: {fileID: 1393792526003694570}
   - component: {fileID: -6627181347655622526}
+  - component: {fileID: 472250514043483264}
   m_Layer: 0
   m_Name: Bullet
-  m_TagString: EnemyProjectile
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,3 +96,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bae90aa5196281246a000271f6a107b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &472250514043483264
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3234387677438829313}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
