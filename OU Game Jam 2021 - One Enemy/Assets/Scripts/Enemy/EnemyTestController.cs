@@ -17,6 +17,8 @@ public class EnemyTestController : MonoBehaviour
     Transform[] swipeLocations = new Transform[8];
     [SerializeField]
     FinalPhaseKnockbackController kb;
+    [SerializeField]
+    private SceneLoader sceneLoader;
 
 
     private void Awake()
@@ -120,7 +122,11 @@ public class EnemyTestController : MonoBehaviour
     }
     public void HandleDamage()
     {
-            health -= 100;
+        health -= 100;
+        if (health <= 0)
+        {
+            StartCoroutine(HandleWinState());
+        }    
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -129,5 +135,12 @@ public class EnemyTestController : MonoBehaviour
             for(int i = 0; i<4; i++)
                 player.ReduceHealth();
         }
+    }
+    IEnumerator HandleWinState()
+    {
+        hasLungeFinished = true;
+        isPerformingAttack = true;
+        yield return new WaitForSeconds(2);
+        sceneLoader.LoadWinScene();
     }
 }
