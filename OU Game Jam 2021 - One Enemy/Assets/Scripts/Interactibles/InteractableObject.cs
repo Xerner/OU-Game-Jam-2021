@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class InteractableObject : MonoBehaviour
 {
-
-
-
     // Start is called before the first frame update
     public void PlayerInteraction()
     {
@@ -16,6 +13,7 @@ public class InteractableObject : MonoBehaviour
         {
             case "Lever":
                 GetComponent<Animator>().SetBool("Active", true);
+                tag = "Untagged";
                 break;
             case "Laser gun":
                 break;
@@ -23,11 +21,6 @@ public class InteractableObject : MonoBehaviour
                 gameObject.SetActive(false);
                 break;
         }
-    }
-
-    public void LeverInteraction()
-    {
-
     }
 
     public void BossInteraction()

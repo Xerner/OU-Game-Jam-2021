@@ -11,16 +11,16 @@ public class PlayerInteraction : MonoBehaviour
     public InputAction InteractAction;
     [SerializeField]
     private GameObject InteractionPopup;
-    private Transform CurrentInteractableLocation;
-    private GameObject InstantiatedInteractable;
+    //private Transform CurrentInteractableLocation;
+    //private GameObject InstantiatedInteractable;
     [SerializeField] Transform GunHolster;
     [SerializeField] ItemSlot laserGunItemSlot;
 
     private void Start()
     {
         InteractAction.Enable();
-       
-
+        if (laserGunItemSlot is null)
+            Debug.LogWarning("PlayerInteraction: Need to initialize LaserGunItemSlot in inspector");
     }
 
     private void Update()
@@ -42,7 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         Weapon.Rotate(new Vector3(0f, 0f, 90f));
         Weapon.SetParent(GunHolster);
         Weapon.localPosition = Vector3.zero;
-        laserGunItemSlot.ObtainItem();
+        if (laserGunItemSlot != null) laserGunItemSlot.ObtainItem();
     }
 
     void OnTriggerEnter2D(Collider2D obj)
@@ -50,11 +50,12 @@ public class PlayerInteraction : MonoBehaviour
         if (obj.CompareTag("Interactible"))
         {
             CurrentInteractable = obj.gameObject;
-            CurrentInteractableLocation = obj.transform;
-            InstantiatedInteractable = Instantiate(InteractionPopup,
-                   new Vector2(CurrentInteractableLocation.position.x,
-                   CurrentInteractableLocation.position.y +1f),
-                   Quaternion.identity);
+            if (InteractionPopup != null) InteractionPopup.SetActive(true);
+            //CurrentInteractableLocation = obj.transform;
+            //InstantiatedInteractable = Instantiate(InteractionPopup,
+            //       new Vector2(CurrentInteractableLocation.position.x,
+            //       CurrentInteractableLocation.position.y +1f),
+            //       Quaternion.identity);
         }
         else if(obj.CompareTag("Enemy") || obj.CompareTag("EnemyProjectile"))
         {
@@ -70,16 +71,17 @@ public class PlayerInteraction : MonoBehaviour
 
         if (obj.CompareTag("Enemy") != true && obj.CompareTag("EnemyProjectile") != true)
         {
-            if(InstantiatedInteractable) Destroy(InstantiatedInteractable);
+            if (InteractionPopup != null) InteractionPopup.SetActive(false);
+            //if(InstantiatedInteractable) Destroy(InstantiatedInteractable);
             if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
             {
                 CurrentInteractable = null;
-                CurrentInteractableLocation = null;
+                //CurrentInteractableLocation = null;
             }
-            if (!CurrentInteractable && InstantiatedInteractable)
-            {
-                InstantiatedInteractable.SetActive(false);
-            }
+            //if (!CurrentInteractable && InstantiatedInteractable)
+            //{
+            //    InstantiatedInteractable.SetActive(false);
+            //}
         }
 
     }
