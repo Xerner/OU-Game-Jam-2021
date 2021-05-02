@@ -22,13 +22,14 @@ public class EnemyTestController : MonoBehaviour
     private AudioSource hit;
     [SerializeField]
     HealthBar healthBar;
+    Animator anim;
 
 
     private void Awake()
     {
         if (healthBar == null) Debug.Log("ENEMYTESTCONTROLLER: healthBar needs to be set in the inspector");
         else healthBar.SetMaxHealth(health);
-
+        anim = GetComponent<Animator>();
         hit = GetComponent<AudioSource>();
         StartCoroutine(StartPhaseDelay());
     }
@@ -87,6 +88,7 @@ public class EnemyTestController : MonoBehaviour
     }
     IEnumerator Swipe()
     {
+        anim.SetTrigger("IsSwipeAttacking");
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(SwipeHandler());
         yield return new WaitForSeconds(2.5f);
@@ -96,6 +98,7 @@ public class EnemyTestController : MonoBehaviour
 
     IEnumerator SwipeHandler()
     {
+        
         var dir = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
         foreach(Transform t in swipeLocations)
         {
@@ -149,6 +152,7 @@ public class EnemyTestController : MonoBehaviour
     }
     IEnumerator HandleWinState()
     {
+        anim.SetTrigger("DeathState");
         hasLungeFinished = true;
         isPerformingAttack = true;
         yield return new WaitForSeconds(2);
