@@ -5,6 +5,9 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private float despawnCounter = 0;
+    [SerializeField]
+    private AudioSource hitSound;
+
     private void Update()
     {
         transform.position += transform.right * .08f;
@@ -17,6 +20,7 @@ public class BulletController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerCombatController>().ReduceHealth();
+            hitSound.Play();
         }
     }
 }

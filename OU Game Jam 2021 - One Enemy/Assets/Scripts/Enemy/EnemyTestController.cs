@@ -17,10 +17,14 @@ public class EnemyTestController : MonoBehaviour
     Transform[] swipeLocations = new Transform[8];
     [SerializeField]
     FinalPhaseKnockbackController kb;
+    [SerializeField]
+    private SceneLoader sceneLoader;
+    private AudioSource hit;
 
 
     private void Awake()
-    { 
+    {
+        hit = GetComponent<AudioSource>();
         StartCoroutine(StartPhaseDelay());
     }
 
@@ -94,6 +98,7 @@ public class EnemyTestController : MonoBehaviour
             Debug.DrawRay(t.position, dir, Color.red, 5f);
             if (ray.collider != null && ray.collider.CompareTag("Player"))
             {
+                hit.Play();
                 kb.ExternalKnockbackHandler(dir);
                 player.ReduceHealth();
                 StopCoroutine(SwipeHandler());
@@ -120,14 +125,26 @@ public class EnemyTestController : MonoBehaviour
     }
     public void HandleDamage()
     {
-            health -= 100;
+        health -= 100;
+        if (health <= 0)
+        {
+            StartCoroutine(HandleWinState());
+        }    
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+            hit.Play();
             for(int i = 0; i<4; i++)
                 player.ReduceHealth();
         }
+    }
+    IEnumerator HandleWinState()
+    {
+        hasLungeFinished = true;
+        isPerformingAttack = true;
+        yield return new WaitForSeconds(2);
+        sceneLoader.LoadWinScene();
     }
 }
