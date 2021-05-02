@@ -23,7 +23,7 @@ public class PlayerInteraction : MonoBehaviour
     }
     private void Update()
     {
-        if (InteractAction.triggered && CurrentInteractable && !CurrentInteractable.CompareTag("Enemy"))
+        if (InteractAction.triggered && CurrentInteractable && !CurrentInteractable.CompareTag("Enemy") && !CurrentInteractable.CompareTag("EnemyProjectile"))
         {
             CurrentInteractable.SendMessage("PlayerInteraction");
         }
@@ -52,7 +52,7 @@ public class PlayerInteraction : MonoBehaviour
     {
 
 
-        if (obj.CompareTag("EnemyP1") != true && obj.CompareTag("EnemyP2") != true && obj.CompareTag("EnemyProjectile") != true)
+        if (obj.CompareTag("Enemy") != true && obj.CompareTag("EnemyProjectile") != true)
         {
 
             Destroy(InstantiatedInteractable);
