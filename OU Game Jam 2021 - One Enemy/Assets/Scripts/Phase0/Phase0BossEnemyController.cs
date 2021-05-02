@@ -13,6 +13,9 @@ public class Phase0BossEnemyController : MonoBehaviour
     List<GameObject> Turrets = new List<GameObject>();
     [SerializeField]
     private GameObject bullet;
+    public int health = 2000;
+    [SerializeField]
+    private SceneLoader sceneLoader;
     bool vulnerable;
 
     // Start is called before the first frame update
@@ -73,5 +76,19 @@ public class Phase0BossEnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("here");
+    }
+
+    public void HandleDamage()
+    {
+        if(vulnerable)
+            health -= 100;
+        if (health <= 0)
+            StartCoroutine(HandleNextPhase());
+    }
+
+    IEnumerator HandleNextPhase()
+    {
+        yield return new WaitForSeconds(2f);
+        sceneLoader.LoadNextPhase();
     }
 }

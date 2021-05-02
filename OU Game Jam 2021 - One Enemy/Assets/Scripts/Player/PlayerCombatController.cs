@@ -13,8 +13,6 @@ public class PlayerCombatController : MonoBehaviour
     public int health = 20;
     [SerializeField]
     HealthBar healthbar;
-    [SerializeField] 
-    float attackDelay = 0.5f;
     [HideInInspector] 
     public bool IsRanged = false;
     [Header("Meta")]
@@ -22,6 +20,8 @@ public class PlayerCombatController : MonoBehaviour
     private Phase1EnemyController enemy;
     [SerializeField]
     private EnemyTestController enemyp2;
+    [SerializeField]
+    private Phase0BossEnemyController enemyp0;
     [SerializeField]
     private SceneLoader sceneLoader;
 
@@ -54,9 +54,13 @@ public class PlayerCombatController : MonoBehaviour
     {
         if (hit.collider != null && hit.collider.CompareTag("Enemy"))
             Debug.Log("This code is running");
-            if(enemy is null)
+            if(enemy is null && enemyp0 is null)
             {
                 enemyp2.HandleDamage();
+            }
+            else if(enemy is null && enemyp2 is null)
+            {
+            enemyp0.HandleDamage();
             }
             else
             {
