@@ -84,7 +84,7 @@ public class Phase1EnemyController : MonoBehaviour
 
     private bool CheckLevers()
     {
-        if (!Levers[0].activeSelf && !Levers[1].activeSelf && !Levers[2].activeSelf && !Levers[3].activeSelf)
+        if (!Levers[0].CompareTag("Untagged") && !Levers[1].CompareTag("Untagged") && !Levers[2].CompareTag("Untagged") && !Levers[3].CompareTag("Untagged"))
             return true;
         else return false;
     }
@@ -95,7 +95,8 @@ public class Phase1EnemyController : MonoBehaviour
         yield return new WaitForSeconds(6f);
         foreach(GameObject lever in Levers)
         {
-            lever.SetActive(true);
+            lever.GetComponent<Animator>().SetBool("Active", false);
+            lever.tag = "Interactible";
         }
         isVulnerable = false;
         isMoving = true;
