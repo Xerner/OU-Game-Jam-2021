@@ -26,30 +26,32 @@ public class PlayerCombatController : MonoBehaviour
     public void Attack()
     {
         {
-            Debug.Log("BIG SWING");
             if(transform.localScale.x > 0)
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 5f);
-                Debug.DrawRay(transform.position, transform.right * 5f);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
+                Debug.DrawRay(transform.position, transform.right * 3.5f);
                 CheckForHit(hit);
             }
             else if(transform.localScale.x < 0)
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 5f);
-                Debug.DrawRay(transform.position, -transform.right * 5f);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 3.5f);
+                Debug.DrawRay(transform.position, -transform.right * 3.5f);
                 CheckForHit(hit);
             }
         }
     }
     private void CheckForHit(RaycastHit2D hit)
     {
-        if (hit.collider != null && hit.collider.CompareTag("EnemyP1"))
-            enemy.HandleDamage();
-        else if (hit.collider != null && hit.collider.CompareTag("EnemyP2"))
-        {
-
-        }
-           // enemyP2.HandleDamage();
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+            Debug.Log("This code is running");
+            if(enemy is null)
+            {
+                enemyp2.HandleDamage();
+            }
+            else
+            {
+                enemy.HandleDamage();
+            }
     }
     public void ReduceHealth()
     {
@@ -59,6 +61,12 @@ public class PlayerCombatController : MonoBehaviour
     }
     private void HandleGameOver()
     {
+        StartCoroutine(GameOverDelay());
         sceneLoader.LoadDeathScreen();
+    }
+
+    IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSeconds(2f);
     }
 }
