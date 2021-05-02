@@ -11,6 +11,8 @@ public class PlayerCombatController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] 
     public int health = 20;
+    [SerializeField]
+    HealthBar healthbar;
     [SerializeField] 
     float attackDelay = 0.5f;
     [HideInInspector] 
@@ -22,6 +24,12 @@ public class PlayerCombatController : MonoBehaviour
     private EnemyTestController enemyp2;
     [SerializeField]
     private SceneLoader sceneLoader;
+
+    private void Start()
+    {
+        if (healthbar is null) Debug.LogError("PlayerCombatController: Need to initialize HealthBar in inspector");
+        healthbar.SetMaxHealth(health);
+    }
 
     public void Attack()
     {
@@ -54,6 +62,7 @@ public class PlayerCombatController : MonoBehaviour
     public void ReduceHealth()
     {
         health--;
+        healthbar.SetHealth(health);
         if (health <= 0)
             HandleGameOver();
     }

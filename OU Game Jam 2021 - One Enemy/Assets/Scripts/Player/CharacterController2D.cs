@@ -119,7 +119,7 @@ public class CharacterController2D : MonoBehaviour
             aim = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
             if (aim.magnitude > aimThreshold / 10)
             {
-                Debug.Log(Vector2.Distance(transform.position, mousePosition));
+                //Debug.Log(Vector2.Distance(transform.position, mousePosition));
                 float rotation = Vector2.SignedAngle(Vector2.down, aim);
                 GunArm.localRotation = Quaternion.Euler(new Vector3(0f, 0f, rotation * transform.localScale.x));
             }

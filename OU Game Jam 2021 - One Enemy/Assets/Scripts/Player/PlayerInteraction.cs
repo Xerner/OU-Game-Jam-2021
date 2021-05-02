@@ -14,6 +14,7 @@ public class PlayerInteraction : MonoBehaviour
     private Transform CurrentInteractableLocation;
     private GameObject InstantiatedInteractable;
     [SerializeField] Transform GunHolster;
+    [SerializeField] ItemSlot laserGunItemSlot;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class PlayerInteraction : MonoBehaviour
        
 
     }
+
     private void Update()
     {
         if (InteractAction.triggered && CurrentInteractable && !CurrentInteractable.CompareTag("Enemy") && !CurrentInteractable.CompareTag("EnemyProjectile"))
@@ -40,6 +42,7 @@ public class PlayerInteraction : MonoBehaviour
         Weapon.Rotate(new Vector3(0f, 0f, 90f));
         Weapon.SetParent(GunHolster);
         Weapon.localPosition = Vector3.zero;
+        laserGunItemSlot.ObtainItem();
     }
 
     void OnTriggerEnter2D(Collider2D obj)

@@ -11,7 +11,7 @@ public class InteractableObject : MonoBehaviour
     public void PlayerInteraction()
     {
         //fill out a list of player interactions based on the objects type
-        Debug.Log("PlayerInteraction on: " + name);
+        //Debug.Log("PlayerInteraction on: " + name);
         switch (name)
         {
             case "Lever":
