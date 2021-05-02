@@ -24,7 +24,8 @@ public class PlayerCombatController : MonoBehaviour
     private Phase0BossEnemyController enemyp0;
     [SerializeField]
     private SceneLoader sceneLoader;
-
+    [SerializeField]
+    private AudioSource attack;
     private void Start()
     {
         if (healthbar is null)
@@ -36,6 +37,7 @@ public class PlayerCombatController : MonoBehaviour
     public void Attack()
     {
         {
+            attack.Play();
             if(transform.localScale.x > 0)
             {
                 RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
@@ -53,7 +55,6 @@ public class PlayerCombatController : MonoBehaviour
     private void CheckForHit(RaycastHit2D hit)
     {
         if (hit.collider != null && hit.collider.CompareTag("Enemy"))
-            Debug.Log("This code is running");
             if(enemy is null && enemyp0 is null)
             {
                 enemyp2.HandleDamage();
@@ -62,9 +63,10 @@ public class PlayerCombatController : MonoBehaviour
             {
             enemyp0.HandleDamage();
             }
-            else
+            else if(enemyp0 is null && enemyp2 is null)
             {
                 enemy.HandleDamage();
+
             }
     }
     public void ReduceHealth()

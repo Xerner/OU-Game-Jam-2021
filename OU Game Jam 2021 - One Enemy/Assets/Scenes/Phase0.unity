@@ -520,17 +520,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1052357965801417324, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3865122854498948344, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
       propertyPath: m_Name
       value: BossContainmentPhase1Closed
-      objectReference: {fileID: 0}
-    - target: {fileID: 3865122854498948344, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3865122854498948345, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3865122854498948346, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
       propertyPath: m_RootOrder
@@ -580,6 +576,18 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 1064506439}
+    - target: {fileID: 5859492951778109055, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
+      propertyPath: health
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859492951778109055, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 1518876012}
+    - target: {fileID: 5859492951778109055, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
+      propertyPath: sceneLoader
+      value: 
+      objectReference: {fileID: 904388739}
     - target: {fileID: 5859492951778109055, guid: 3eb14c0799957094fa39bb2f8c5a426a, type: 3}
       propertyPath: Turrets.Array.data[0]
       value: 
@@ -1323,6 +1331,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e99e7a22c1c91e4cb762c5da0bd2196, type: 3}
+--- !u!114 &1518876012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3241753659323098589, guid: c7e71ae7bd73da045b44e526ba806483, type: 3}
+  m_PrefabInstance: {fileID: 262493129}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8fada4eeea7d5f4cb54986ee4993852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1585121255
 PrefabInstance:
   m_ObjectHideFlags: 0

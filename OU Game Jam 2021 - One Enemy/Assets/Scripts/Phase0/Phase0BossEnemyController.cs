@@ -16,11 +16,15 @@ public class Phase0BossEnemyController : MonoBehaviour
     public int health = 2000;
     [SerializeField]
     private SceneLoader sceneLoader;
+    [SerializeField]
+    HealthBar healthBar;
     bool vulnerable;
 
     // Start is called before the first frame update
     void Awake()
     {
+        if (healthBar is null) Debug.Log("Phase0BossEnemyController: health bar must be assigned in the inspector.");
+        else healthBar.SetMaxHealth(health);
         PhaseOneAnimator = GetComponent<Animator>();
         StartCoroutine(IdleToOpen());
         
@@ -82,6 +86,10 @@ public class Phase0BossEnemyController : MonoBehaviour
     {
         if(vulnerable)
             health -= 100;
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(health);
+        }
         if (health <= 0)
             StartCoroutine(HandleNextPhase());
     }

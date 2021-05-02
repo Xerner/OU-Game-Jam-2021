@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FinalPhaseKnockbackController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField]
+    private AudioSource knockback;
     void Start()
     {
         StartCoroutine(BeginningKnockback());
@@ -16,6 +17,7 @@ public class FinalPhaseKnockbackController : MonoBehaviour
         yield return new WaitForSeconds(1);
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         rb.AddForce(Vector2.up * 2000f);
+        knockback.Play();
         yield return new WaitForSeconds(1f);
         movement.EnableUserInput();
     }
