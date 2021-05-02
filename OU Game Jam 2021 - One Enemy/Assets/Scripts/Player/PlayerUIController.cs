@@ -16,8 +16,7 @@ public class PlayerUIController : MonoBehaviour
     {
         if (context.ReadValueAsButton() == true && context.performed == false)
         {
-            Debug.Log("Escape pressed");
-            quitMenu.Toggle();
+            if (quitMenu != null) quitMenu.Toggle();
         }
     }
 }

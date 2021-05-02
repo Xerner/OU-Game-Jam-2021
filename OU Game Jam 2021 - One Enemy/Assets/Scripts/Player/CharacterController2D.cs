@@ -17,8 +17,6 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
     {
 		combatController = GetComponent<PlayerCombatController>();
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
     }
 
     private void Start()
