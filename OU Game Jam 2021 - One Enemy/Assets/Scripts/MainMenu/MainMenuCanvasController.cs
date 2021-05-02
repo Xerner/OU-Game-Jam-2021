@@ -10,8 +10,6 @@ public class MainMenuCanvasController : MonoBehaviour
     [SerializeField]
     private GameObject InstructionsView;
     [SerializeField]
-    private GameObject SettingsView;
-    [SerializeField]
     private SceneLoader sceneLoader;
 
     private void Awake()
@@ -26,19 +24,11 @@ public class MainMenuCanvasController : MonoBehaviour
     {
         MainView.SetActive(false);
         InstructionsView.SetActive(true);
-        SettingsView.SetActive(false);
-    }
-    public void SettingsButtonPressed()
-    {
-        MainView.SetActive(false);
-        InstructionsView.SetActive(false);
-        SettingsView.SetActive(true);
     }
     public void ReturnButtonPressed()
     {
         MainView.SetActive(true);
         InstructionsView.SetActive(false);
-        SettingsView.SetActive(false);
     }
     public void QuitButtonPressed()
     {
