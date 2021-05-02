@@ -908,8 +908,10 @@ MonoBehaviour:
     text. Something something burger king foot lettuce.
 
 
-    On PC: WASD to move,
-    E to interact'
+    PC: WASD to move, E
+    to interact, Space to attack, TAB to switch weapons
+
+    GamePad: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 79b2787874b4ec5419b8cbd62bd5f905, type: 2}
   m_sharedMaterial: {fileID: -3891755569229648889, guid: 79b2787874b4ec5419b8cbd62bd5f905, type: 2}
