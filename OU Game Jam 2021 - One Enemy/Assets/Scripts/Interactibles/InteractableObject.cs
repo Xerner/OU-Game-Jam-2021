@@ -12,7 +12,7 @@ public class InteractableObject : MonoBehaviour
         switch (name)
         {
             case "Lever":
-                GetComponent<Animator>().SetBool("Active", true);
+                GetComponent<LeverController>().Activate();
                 tag = "Untagged";
                 break;
             case "Laser gun":

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5956613616073732481}
   - component: {fileID: 5956613616073732480}
   - component: {fileID: 5956613616073732483}
-  - component: {fileID: 1348684257}
   - component: {fileID: 1348684258}
   - component: {fileID: 934564368654291605}
+  - component: {fileID: 1348684257}
   m_Layer: 0
   m_Name: SouthEast Lever
   m_TagString: Interactible
@@ -112,25 +112,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &1348684257
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5956613616073732542}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1500dcf1f35d1564cac2295936b78562, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1348684258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +150,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.25}
   m_EdgeRadius: 0
+--- !u!114 &1348684257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5956613616073732542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9cbe62ff6554be488359cd65f8f3261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: {fileID: 21300000, guid: 3a9b82191981a7e4c9a5b4c06f198019, type: 3}
+  inactive: {fileID: 21300000, guid: 95b7d8a841037d64f9a455734bab1cfc, type: 3}

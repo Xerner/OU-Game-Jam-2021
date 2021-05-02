@@ -18,10 +18,12 @@ public class UIButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerEnter(PointerEventData eventData)
     {
         image.sprite = hoveredImage;
+        image.color = new Color(1f, 1f, 1f, 1f);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         image.sprite = unhoveredImage;
+        image.color = new Color(1f, 1f, 1f, 0f);
     }
 }
