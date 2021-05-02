@@ -22,14 +22,18 @@ public class Phase1EnemyController : MonoBehaviour
     private float endDelay = 3;
     [SerializeField]
     HealthBar healthBar;
+    Animator Anim;
+
     AudioSource enemyAudio;
 
     private void Awake()
     {
+        Anim = GetComponent<Animator>();
         if (healthBar is null) Debug.Log("HealthBar must be initialized in the inspector");
         else healthBar.SetMaxHealth(health);
         enemyAudio = GetComponent<AudioSource>();
         StartCoroutine(MovementDelay());
+
     }
 
     IEnumerator MovementDelay()
@@ -70,6 +74,7 @@ public class Phase1EnemyController : MonoBehaviour
         }
         if(health <= 0)
         {
+            Anim.SetTrigger("DeathState");
             EndOfPhase();
         }
     }
@@ -113,6 +118,8 @@ public class Phase1EnemyController : MonoBehaviour
         if(isVulnerable)
             health -= 100;
         if(healthBar != null) healthBar.SetHealth(health);
+
+        
     }
 }
 

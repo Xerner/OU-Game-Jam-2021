@@ -90,13 +90,20 @@ public class Phase0BossEnemyController : MonoBehaviour
         {
             healthBar.SetHealth(health);
         }
-        if (health <= 0)
+        if (health <= 0) {
+            PhaseOneAnimator.SetBool("PhaseHealthDepleted", true);
+            StartCoroutine(WaitForDeathAnimation());
             StartCoroutine(HandleNextPhase());
+        }
     }
 
     IEnumerator HandleNextPhase()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3.5f);
         sceneLoader.LoadNextPhase();
+    }
+    IEnumerator WaitForDeathAnimation()
+    {
+        yield return new WaitForSeconds(45f);
     }
 }
