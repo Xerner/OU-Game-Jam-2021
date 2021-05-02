@@ -11,14 +11,20 @@ public class SceneLoader : MonoBehaviour
     }
     public void LoadDeathScreen()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         SceneManager.LoadScene("GameOver");
     }
     public void LoadWinScene()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         SceneManager.LoadScene("WinScene");
     }
     public void LoadMainMenu()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
         SceneManager.LoadScene("Main Menu");
     }
 }

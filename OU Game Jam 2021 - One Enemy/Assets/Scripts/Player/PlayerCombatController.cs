@@ -11,6 +11,8 @@ public class PlayerCombatController : MonoBehaviour
     [Header("Stats")]
     [SerializeField] 
     public int health = 20;
+    [SerializeField]
+    HealthBar healthbar;
     [SerializeField] 
     float attackDelay = 0.5f;
     [HideInInspector] 
@@ -23,42 +25,57 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private SceneLoader sceneLoader;
 
+    private void Start()
+    {
+        if (healthbar is null) Debug.LogError("PlayerCombatController: Need to initialize HealthBar in inspector");
+        healthbar.SetMaxHealth(health);
+    }
+
     public void Attack()
     {
         {
-            Debug.Log("BIG SWING");
             if(transform.localScale.x > 0)
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 5f);
-                Debug.DrawRay(transform.position, transform.right * 5f);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
+                Debug.DrawRay(transform.position, transform.right * 3.5f);
                 CheckForHit(hit);
             }
             else if(transform.localScale.x < 0)
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 5f);
-                Debug.DrawRay(transform.position, -transform.right * 5f);
+                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 3.5f);
+                Debug.DrawRay(transform.position, -transform.right * 3.5f);
                 CheckForHit(hit);
             }
         }
     }
     private void CheckForHit(RaycastHit2D hit)
     {
-        if (hit.collider != null && hit.collider.CompareTag("EnemyP1"))
-            enemy.HandleDamage();
-        else if (hit.collider != null && hit.collider.CompareTag("EnemyP2"))
-        {
-
-        }
-           // enemyP2.HandleDamage();
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+            Debug.Log("This code is running");
+            if(enemy is null)
+            {
+                enemyp2.HandleDamage();
+            }
+            else
+            {
+                enemy.HandleDamage();
+            }
     }
     public void ReduceHealth()
     {
         health--;
+        healthbar.SetHealth(health);
         if (health <= 0)
             HandleGameOver();
     }
     private void HandleGameOver()
     {
+        StartCoroutine(GameOverDelay());
         sceneLoader.LoadDeathScreen();
+    }
+
+    IEnumerator GameOverDelay()
+    {
+        yield return new WaitForSeconds(2f);
     }
 }

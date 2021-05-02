@@ -12,8 +12,24 @@ public class EnemyTestController : MonoBehaviour
     private bool hasLungeFinished = true;
     private float swipeRange = 2f;
     private Vector2 LungeDestination;
-    private int health = 10000;
+    public int health = 5000;
+    [SerializeField]
+    Transform[] swipeLocations = new Transform[8];
+    [SerializeField]
+    FinalPhaseKnockbackController kb;
 
+
+    private void Awake()
+    { 
+        StartCoroutine(StartPhaseDelay());
+    }
+
+    IEnumerator StartPhaseDelay()
+    {
+        isPerformingAttack = true;
+        yield return new WaitForSeconds(5f);
+        isPerformingAttack = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -62,17 +78,36 @@ public class EnemyTestController : MonoBehaviour
     }
     IEnumerator Swipe()
     {
-        yield return new WaitForSeconds(0.2f);
-        Debug.Log("SWIPE");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(SwipeHandler());
+        yield return new WaitForSeconds(2.5f);
         isPerformingAttack = false;
         hasLungeFinished = true;
     }
+
+    IEnumerator SwipeHandler()
+    {
+        var dir = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y);
+        foreach(Transform t in swipeLocations)
+        {
+            RaycastHit2D ray = Physics2D.Raycast(t.position, dir, 3f);
+            Debug.DrawRay(t.position, dir, Color.red, 5f);
+            if (ray.collider != null && ray.collider.CompareTag("Player"))
+            {
+                kb.ExternalKnockbackHandler(dir);
+                player.ReduceHealth();
+                StopCoroutine(SwipeHandler());
+
+            }
+
+        }
+        yield return new WaitForSeconds(.1f);
+    }
+
     IEnumerator Projectile()
     {
         for(int i = 0; i < 10; i++)
         {
-            Debug.Log("FIRE!" + i);
             var dirX = player.transform.position.x - transform.position.x;
             var dirY = player.transform.position.y - transform.position.y;
             var angle = Mathf.Atan2(dirY ,dirX) * Mathf.Rad2Deg;
@@ -80,11 +115,19 @@ public class EnemyTestController : MonoBehaviour
             Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
             yield return new WaitForSeconds(.1f);
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         isPerformingAttack = false;
     }
     public void HandleDamage()
     {
             health -= 100;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            for(int i = 0; i<4; i++)
+                player.ReduceHealth();
+        }
     }
 }

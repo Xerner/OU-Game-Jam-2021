@@ -12,5 +12,11 @@ public class BulletController : MonoBehaviour
         if (despawnCounter > 10)
             Destroy(this.gameObject);
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerCombatController>().ReduceHealth();
+        }
+    }
 }

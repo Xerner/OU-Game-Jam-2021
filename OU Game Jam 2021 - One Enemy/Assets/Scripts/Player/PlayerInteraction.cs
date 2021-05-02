@@ -13,7 +13,8 @@ public class PlayerInteraction : MonoBehaviour
     private GameObject InteractionPopup;
     private Transform CurrentInteractableLocation;
     private GameObject InstantiatedInteractable;
-
+    [SerializeField] Transform GunHolster;
+    [SerializeField] ItemSlot laserGunItemSlot;
 
     private void Start()
     {
@@ -21,12 +22,27 @@ public class PlayerInteraction : MonoBehaviour
        
 
     }
+
     private void Update()
     {
         if (InteractAction.triggered && CurrentInteractable && !CurrentInteractable.CompareTag("Enemy") && !CurrentInteractable.CompareTag("EnemyProjectile"))
         {
+            if (CurrentInteractable.name == "Laser gun")
+            {
+                EquipWeapon(CurrentInteractable.transform);
+                return;
+            }
             CurrentInteractable.SendMessage("PlayerInteraction");
         }
+    }
+
+    public void EquipWeapon(Transform Weapon)
+    {
+        Weapon.GetComponent<Renderer>().sortingOrder = 24;
+        Weapon.Rotate(new Vector3(0f, 0f, 90f));
+        Weapon.SetParent(GunHolster);
+        Weapon.localPosition = Vector3.zero;
+        laserGunItemSlot.ObtainItem();
     }
 
     void OnTriggerEnter2D(Collider2D obj)
