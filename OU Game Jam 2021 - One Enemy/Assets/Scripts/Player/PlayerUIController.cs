@@ -9,7 +9,7 @@ public class PlayerUIController : MonoBehaviour
 
     private void Start()
     {
-        if (quitMenu is null) Debug.LogError("PlayerUIController: Please set the QuitMenu in the inspector");
+        if (quitMenu is null) Debug.LogWarning("PlayerUIController: Please set the QuitMenu in the inspector");
     }
     
     public void OpenMenuListener(CallbackContext context)
