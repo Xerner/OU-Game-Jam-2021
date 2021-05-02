@@ -21,6 +21,11 @@ public class BulletController : MonoBehaviour
         {
             collision.GetComponent<PlayerCombatController>().ReduceHealth();
             hitSound.Play();
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("Untagged"))
+        {
+            Destroy(gameObject);
         }
         else if (collision.CompareTag("Enemy") && tag != "EnemyProjectile")
         {

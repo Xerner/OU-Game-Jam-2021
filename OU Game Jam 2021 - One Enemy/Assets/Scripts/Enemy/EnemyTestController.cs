@@ -54,7 +54,7 @@ public class EnemyTestController : MonoBehaviour
             {
                 var rand = Random.Range(0, 3);
                 Debug.Log(rand);
-                if(rand < 3)
+                if(rand < 2)
                 {
                     isPerformingAttack = true;
                     StartCoroutine(Lunge());
