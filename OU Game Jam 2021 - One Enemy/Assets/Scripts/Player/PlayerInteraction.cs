@@ -54,13 +54,13 @@ public class PlayerInteraction : MonoBehaviour
 
         if (obj.CompareTag("Enemy") != true && obj.CompareTag("EnemyProjectile") != true)
         {
-            Destroy(InstantiatedInteractable);
+            if(InstantiatedInteractable) Destroy(InstantiatedInteractable);
             if (obj.CompareTag("Interactible") && obj.gameObject == CurrentInteractable)
             {
                 CurrentInteractable = null;
                 CurrentInteractableLocation = null;
             }
-            if (!CurrentInteractable)
+            if (!CurrentInteractable && InstantiatedInteractable)
             {
                 InstantiatedInteractable.SetActive(false);
             }
