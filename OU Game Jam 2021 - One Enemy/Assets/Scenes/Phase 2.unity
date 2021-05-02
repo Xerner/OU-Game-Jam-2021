@@ -1701,7 +1701,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.0065164566}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1712,7 +1712,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 3.671733}
   m_EdgeRadius: 0
 --- !u!50 &2789233209529219405
 Rigidbody2D:
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1391522256}
   bullet: {fileID: 3234387677438829313, guid: a934a08d76d32ea4dbc45b48b55dfd59, type: 3}
-  health: 5000
+  health: 6000
   swipeLocations:
   - {fileID: 44931247}
   - {fileID: 1628746}
