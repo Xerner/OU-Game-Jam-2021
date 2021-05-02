@@ -31,6 +31,7 @@ public class BulletController : MonoBehaviour
         {
             collision.SendMessage("HandleDamage");
             hitSound.Play();
+            Destroy(gameObject);
         }
     }
 }

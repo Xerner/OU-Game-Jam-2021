@@ -56,7 +56,8 @@ public class PlayerCombatController : MonoBehaviour
             }
             else
             {
-                if(transform.localScale.x > 0)
+                GetComponent<CharacterController2D>().MeleeAttack();
+                if (transform.localScale.x > 0)
                 {
                     RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
                     Debug.DrawRay(transform.position, transform.right * 3.5f);

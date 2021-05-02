@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
@@ -5,6 +6,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class CharacterController2D : MonoBehaviour
 {
 	[Header("Arms")]
+    [SerializeField] GameObject sword;
 	[SerializeField] Transform GunArm;
 	[SerializeField] Transform LeftArm;
 	[SerializeField] Transform RightArm;
@@ -13,7 +15,7 @@ public class CharacterController2D : MonoBehaviour
 	PlayerCombatController combatController;
 	bool m_FacingRight = true;
 	float aimThreshold = 0.5f; // Threshold should prevent the arm flicking backwards when the analog stick is released
-	public bool hasGun;
+	[HideInInspector] public bool hasGun;
 
 	private void Awake()
     {
@@ -74,7 +76,6 @@ public class CharacterController2D : MonoBehaviour
             }
 			disabledArm = LeftArm;
 		}
-
         transform.localScale = theScale;
 	}
 
@@ -88,6 +89,24 @@ public class CharacterController2D : MonoBehaviour
 		combatController.IsRanged = ranged;
 		GunArm.gameObject.SetActive(ranged);
 		disabledArm.gameObject.SetActive(!ranged);
+	}
+
+	public void MeleeAttack()
+    {
+		GunArm.gameObject.SetActive(true);
+		sword.SetActive(true);
+		disabledArm.gameObject.SetActive(false);
+		GunArm.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 90f));
+		StartCoroutine(ReturnFromMeleeAttack());
+	}
+
+	IEnumerator ReturnFromMeleeAttack()
+    {
+		yield return new WaitForSeconds(0.25f);
+		GunArm.gameObject.SetActive(false);
+		sword.SetActive(false);
+		LeftArm.gameObject.SetActive(true);
+		RightArm.gameObject.SetActive(true);
 	}
 
 	public void SwitchCombatMode(CallbackContext context)
