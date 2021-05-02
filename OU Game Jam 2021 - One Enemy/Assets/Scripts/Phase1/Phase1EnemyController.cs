@@ -29,8 +29,8 @@ public class Phase1EnemyController : MonoBehaviour
 
     IEnumerator MovementDelay()
     {
-        StartCoroutine(Fire());
         yield return new WaitForSeconds(2);
+        StartCoroutine(Fire());
         isMoving = true;
     }
 
