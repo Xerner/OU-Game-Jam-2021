@@ -6,10 +6,16 @@ public class InteractableObject : MonoBehaviour
 {
 
     // Start is called before the first frame update
-    public void PlayerInteraction(GameObject caller)
+    public void PlayerInteraction()
     {
         //fill out a list of player interactions based on the objects type
-        Debug.Log(caller.name);
+        Debug.Log("PlayerInteraction on: " + name);
+        switch (name)
+        {
+            case "Lever":
+                GetComponent<Animator>().SetBool("Active", true);
+                break;
+        }
         //gameObject.SetActive(false);
     }
 
