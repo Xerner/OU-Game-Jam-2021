@@ -19,11 +19,12 @@ public class Phase1EnemyController : MonoBehaviour
     private int health = 3000;
     [SerializeField]
     private SceneLoader sceneLoader;
-    private bool isPhaseEnding;
     private float endDelay = 3;
+    AudioSource audio;
 
     private void Awake()
     {
+        audio = GetComponent<AudioSource>();
         StartCoroutine(MovementDelay());
     }
 
@@ -92,6 +93,7 @@ public class Phase1EnemyController : MonoBehaviour
     {
         isMoving = false;
         isVulnerable = true;
+        audio.Play();
         yield return new WaitForSeconds(6f);
         foreach(GameObject lever in Levers)
         {
