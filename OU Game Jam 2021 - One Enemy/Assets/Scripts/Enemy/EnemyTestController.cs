@@ -20,10 +20,15 @@ public class EnemyTestController : MonoBehaviour
     [SerializeField]
     private SceneLoader sceneLoader;
     private AudioSource hit;
+    [SerializeField]
+    HealthBar healthBar;
 
 
     private void Awake()
     {
+        if (healthBar == null) Debug.Log("ENEMYTESTCONTROLLER: healthBar needs to be set in the inspector");
+        else healthBar.SetMaxHealth(health);
+
         hit = GetComponent<AudioSource>();
         StartCoroutine(StartPhaseDelay());
     }
@@ -47,14 +52,14 @@ public class EnemyTestController : MonoBehaviour
             }
             else
             {
-                var rand = Random.Range(0, 4);
+                var rand = Random.Range(0, 3);
                 Debug.Log(rand);
                 if(rand < 3)
                 {
                     isPerformingAttack = true;
                     StartCoroutine(Lunge());
                 }
-                else if (rand == 3)
+                else if (rand == 2)
                 {
                     isPerformingAttack = true;
                     StartCoroutine(Projectile());
@@ -116,7 +121,6 @@ public class EnemyTestController : MonoBehaviour
             var dirX = player.transform.position.x - transform.position.x;
             var dirY = player.transform.position.y - transform.position.y;
             var angle = Mathf.Atan2(dirY ,dirX) * Mathf.Rad2Deg;
-            Debug.Log(Quaternion.Euler(0, 0, angle));
             Instantiate(bullet, transform.position, Quaternion.Euler(0f, 0f, angle));
             yield return new WaitForSeconds(.1f);
         }
@@ -126,6 +130,9 @@ public class EnemyTestController : MonoBehaviour
     public void HandleDamage()
     {
         health -= 100;
+        if(healthBar != null)
+            healthBar.SetHealth(health);
+
         if (health <= 0)
         {
             StartCoroutine(HandleWinState());
