@@ -7,7 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerMovement2D : MonoBehaviour
 {
     CharacterController2D controller;
-    PlayerCombatController CombatController;
+    PlayerCombatController combatController;
     [SerializeField] float speed = 3;
     Vector2 movement;
     Animator animator;
@@ -17,7 +17,7 @@ public class PlayerMovement2D : MonoBehaviour
     private void Awake()
     {
         controller = GetComponent<CharacterController2D>();
-        CombatController = GetComponent<PlayerCombatController>();
+        combatController = GetComponent<PlayerCombatController>();
 		animator = GetComponent<Animator>();
     }
 
@@ -52,12 +52,11 @@ public class PlayerMovement2D : MonoBehaviour
         if (!isDisabled)
         {
             if (context.ReadValueAsButton() == true && context.performed == false && attackCooldown <= 0)
-        {
-            CombatController.Attack();
-            attackCooldown = .2f;
-        }
+            {
+                combatController.Attack();
+                attackCooldown = .2f;
+            }
 
         }
-        
     }
 }

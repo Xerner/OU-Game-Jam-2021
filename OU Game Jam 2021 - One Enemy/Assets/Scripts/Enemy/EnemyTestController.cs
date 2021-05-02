@@ -53,7 +53,7 @@ public class EnemyTestController : MonoBehaviour
             else
             {
                 var rand = Random.Range(0, 3);
-                Debug.Log(rand);
+                //Debug.Log(rand);
                 if(rand < 2)
                 {
                     isPerformingAttack = true;

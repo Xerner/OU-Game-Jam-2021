@@ -43,6 +43,7 @@ public class PlayerInteraction : MonoBehaviour
         Weapon.SetParent(GunHolster);
         Weapon.localPosition = Vector3.zero;
         if (laserGunItemSlot != null) laserGunItemSlot.ObtainItem();
+        GetComponent<CharacterController2D>().hasGun = true;
     }
 
     void OnTriggerEnter2D(Collider2D obj)
