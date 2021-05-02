@@ -12,6 +12,12 @@ public class MainMenuCanvasController : MonoBehaviour
     [SerializeField]
     private SceneLoader sceneLoader;
 
+    private void Update()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
+
     private void Awake()
     {
         ReturnButtonPressed();
