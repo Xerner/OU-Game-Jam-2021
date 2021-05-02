@@ -20,10 +20,14 @@ public class Phase1EnemyController : MonoBehaviour
     [SerializeField]
     private SceneLoader sceneLoader;
     private float endDelay = 3;
+    [SerializeField]
+    HealthBar healthBar;
     AudioSource audio;
 
     private void Awake()
     {
+        if (healthBar is null) Debug.Log("HealthBar must be initialized in the inspector");
+        else healthBar.SetMaxHealth(health);
         audio = GetComponent<AudioSource>();
         StartCoroutine(MovementDelay());
     }
@@ -106,8 +110,10 @@ public class Phase1EnemyController : MonoBehaviour
     }
     public void HandleDamage()
     {
+        Debug.Log(isVulnerable);
         if(isVulnerable)
             health -= 100;
+        if(healthBar != null) healthBar.SetHealth(health);
     }
 }
 
