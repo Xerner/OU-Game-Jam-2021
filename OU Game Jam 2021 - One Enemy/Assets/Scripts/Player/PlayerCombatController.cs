@@ -25,30 +25,49 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField]
     private SceneLoader sceneLoader;
     [SerializeField]
-    private AudioSource attack;
+    private AudioSource attackAudio;
+    [Header("Bullet")]
+    [SerializeField] Transform bulletSpawnPoint;
+    [SerializeField] Transform gunArm;
+    [SerializeField] GameObject bullet;
+
     private void Start()
     {
         if (healthbar is null)
             Debug.LogWarning("PlayerCombatController: Need to initialize HealthBar in inspector");
         else
             healthbar.SetMaxHealth(health);
+        if (bulletSpawnPoint is null)
+            Debug.LogWarning("PlayerCombatController: Need to initialize Bullet Spawn Point in inspector");
+        if (gunArm is null)
+            Debug.LogWarning("PlayerCombatController: Need to initialize GunArm in inspector");
     }
 
     public void Attack()
     {
         {
-            attack.Play();
-            if(transform.localScale.x > 0)
+            attackAudio.Play();
+            if (IsRanged)
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
-                Debug.DrawRay(transform.position, transform.right * 3.5f);
-                CheckForHit(hit);
+                /*var dirX = bulletSpawnPoint.position.x - transform.position.x;
+                var dirY = bulletSpawnPoint.position.y - transform.position.y;
+                var angle = Mathf.Atan2(dirY, dirX) * Mathf.Rad2Deg;*/
+                Instantiate(bullet, bulletSpawnPoint.position, gunArm.rotation).transform.Rotate(new Vector3(0f, 0f, -90f));
             }
-            else if(transform.localScale.x < 0)
+            else
             {
-                RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 3.5f);
-                Debug.DrawRay(transform.position, -transform.right * 3.5f);
-                CheckForHit(hit);
+                if(transform.localScale.x > 0)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x + 1, transform.position.y), transform.right * 3.5f);
+                    Debug.DrawRay(transform.position, transform.right * 3.5f);
+                    CheckForHit(hit);
+                }
+                else if(transform.localScale.x < 0)
+                {
+                    RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x - 1, transform.position.y), -transform.right * 3.5f);
+                    Debug.DrawRay(transform.position, -transform.right * 3.5f);
+                    CheckForHit(hit);
+                }
             }
         }
     }

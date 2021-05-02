@@ -13,6 +13,7 @@ public class CharacterController2D : MonoBehaviour
 	PlayerCombatController combatController;
 	bool m_FacingRight = true;
 	float aimThreshold = 0.5f; // Threshold should prevent the arm flicking backwards when the analog stick is released
+	public bool hasGun;
 
 	private void Awake()
     {
@@ -93,15 +94,13 @@ public class CharacterController2D : MonoBehaviour
 	{
 		if (context.ReadValueAsButton() == true && context.performed == false)
         {
-			ChangeCombatMode(!combatController.IsRanged);
-			//Debug.Log("Ranged Combat: " + combatController.IsRanged);
+			if (hasGun) ChangeCombatMode(!combatController.IsRanged);
 		}
 	}
 
 	public void AimListener(CallbackContext context)
 	{
 		Vector2 aim = context.ReadValue<Vector2>();
-		//Debug.Log(context.control.path);
 		if (combatController.IsRanged)
         {
 			AimGunArm(context, aim);

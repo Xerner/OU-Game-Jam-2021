@@ -8,6 +8,7 @@ TagManager:
   - EnemyProjectile
   - Enemy
   - Phase0Boss
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7444712212161249487
 Transform:
   m_ObjectHideFlags: 0
@@ -29,6 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6259178284478072343}
+  - {fileID: 3643689565148358463}
   m_Father: {fileID: 3779167242944161147}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -181,7 +182,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8666368705432330736
 Transform:
   m_ObjectHideFlags: 0
@@ -439,10 +440,6 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton,/Touchscreen/primaryTouch/tap]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 48feeb19-1f01-423c-b8b5-7b71ee663be4
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 0e45f00e-e3bb-481e-b611-1fa124daef46
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
@@ -525,6 +522,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6a7af995-8417-4d95-8c6b-6b85272b6591
     m_ActionName: Player/Open Menu[/Keyboard/escape,/DualShock4GamepadHID/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6a20377c-65b6-450c-8e3f-2e5507b79bcb
+    m_ActionName: UI/Move[/DualShock4GamepadHID/leftStick,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -545,6 +546,7 @@ MonoBehaviour:
   GunArm: {fileID: 7444712212161249487}
   LeftArm: {fileID: 118225811235290639}
   RightArm: {fileID: 8666368705432330736}
+  hasGun: 0
 --- !u!114 &3779167242944161095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -578,7 +580,10 @@ MonoBehaviour:
   enemyp2: {fileID: 0}
   enemyp0: {fileID: 0}
   sceneLoader: {fileID: 0}
-  attack: {fileID: 3458401751817769765}
+  attackAudio: {fileID: 3458401751817769765}
+  bulletSpawnPoint: {fileID: 3643689565148358463}
+  gunArm: {fileID: 7444712212161249487}
+  bullet: {fileID: 2716574871141837089, guid: aa472c90c36cc0146ab305cc29778f41, type: 3}
 --- !u!50 &1554357327
 Rigidbody2D:
   serializedVersion: 4
@@ -906,6 +911,36 @@ Transform:
   m_Father: {fileID: 7444712212161249487}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &8417671519343978617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3643689565148358463}
+  m_Layer: 0
+  m_Name: Bullet Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3643689565148358463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8417671519343978617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.7210007, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7444712212161249487}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8910757849966982965
 GameObject:
   m_ObjectHideFlags: 0

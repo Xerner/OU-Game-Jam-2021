@@ -17,9 +17,14 @@ public class BulletController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && tag != "PlayerProjectile")
         {
             collision.GetComponent<PlayerCombatController>().ReduceHealth();
+            hitSound.Play();
+        }
+        else if (collision.CompareTag("Enemy") && tag != "EnemyProjectile")
+        {
+            collision.SendMessage("HandleDamage");
             hitSound.Play();
         }
     }
