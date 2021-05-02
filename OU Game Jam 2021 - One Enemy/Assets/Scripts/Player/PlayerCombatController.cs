@@ -27,8 +27,10 @@ public class PlayerCombatController : MonoBehaviour
 
     private void Start()
     {
-        if (healthbar is null) Debug.LogError("PlayerCombatController: Need to initialize HealthBar in inspector");
-        healthbar.SetMaxHealth(health);
+        if (healthbar is null)
+            Debug.LogWarning("PlayerCombatController: Need to initialize HealthBar in inspector");
+        else
+            healthbar.SetMaxHealth(health);
     }
 
     public void Attack()
@@ -64,7 +66,7 @@ public class PlayerCombatController : MonoBehaviour
     public void ReduceHealth()
     {
         health--;
-        healthbar.SetHealth(health);
+        if (healthbar != null) healthbar.SetHealth(health);
         if (health <= 0)
             HandleGameOver();
     }
