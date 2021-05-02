@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f0d98f5be51926f46bc797504da5ad22, type: 3}
-  m_Name: Labratory tiles
+  m_Name: Lab Walls
   m_EditorClassIdentifier: 
   AtlasTexture: {fileID: 2800000, guid: 36cf29d44da17194bbc6cdca0ba540d5, type: 3}
   TilePxSize: {x: 64, y: 64}
@@ -209,10 +209,10 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0, y: 0}
-      - {x: 0, y: 0.703125}
+      - {x: 0.40625, y: -0}
       - {x: 1, y: 0.703125}
       - {x: 1, y: 0}
-      type: 2
+      type: 1
     paramContainer:
       m_paramList: []
     prefabData:
@@ -233,7 +233,7 @@ MonoBehaviour:
       vertices:
       - {x: 0, y: 0}
       - {x: 0, y: 1}
-      - {x: 0.265625, y: 1}
+      - {x: 0.25, y: 1}
       - {x: 0.25, y: 0}
       type: 2
     paramContainer:
@@ -358,10 +358,10 @@ MonoBehaviour:
     collData:
       vertices:
       - {x: 0, y: 0}
-      - {x: 0, y: 0.703125}
+      - {x: 0.453125, y: 0.328125}
       - {x: 1, y: 0.703125}
       - {x: 1, y: 0}
-      type: 2
+      type: 1
     paramContainer:
       m_paramList: []
     prefabData:
@@ -428,7 +428,7 @@ MonoBehaviour:
       - {x: 0, y: 0.25}
       - {x: 1, y: 0.25}
       - {x: 1, y: 0}
-      type: 0
+      type: 2
     paramContainer:
       m_paramList: []
     prefabData:
@@ -447,7 +447,9 @@ MonoBehaviour:
       height: 0.14285715
     collData:
       vertices:
-      - {x: 0.75, y: 0}
+      - {x: 0, y: 0}
+      - {x: 0, y: 0.25}
+      - {x: 0.75, y: 0.25}
       - {x: 0.75, y: 1}
       - {x: 1, y: 1}
       - {x: 1, y: 0}
@@ -573,7 +575,7 @@ MonoBehaviour:
       - {x: 0.75, y: 0.25}
       - {x: 1, y: 0.25}
       - {x: 1, y: 0}
-      type: 0
+      type: 2
     paramContainer:
       m_paramList: []
     prefabData:
@@ -619,7 +621,7 @@ MonoBehaviour:
       - {x: 0, y: 0.25}
       - {x: 0.25, y: 0.25}
       - {x: 0.25, y: 0}
-      type: 0
+      type: 2
     paramContainer:
       m_paramList: []
     prefabData:
@@ -805,7 +807,9 @@ MonoBehaviour:
       - {x: 0, y: 0}
       - {x: 0, y: 1}
       - {x: 0.25, y: 1}
-      - {x: 0.25, y: 0}
+      - {x: 0.25, y: 0.25}
+      - {x: 1, y: 0.25}
+      - {x: 1, y: 0}
       type: 2
     paramContainer:
       m_paramList: []
