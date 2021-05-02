@@ -12,6 +12,7 @@ public class PlayerMovement2D : MonoBehaviour
     Vector2 movement;
     Animator animator;
     private float attackCooldown;
+    private bool isDisabled = false;
 
     private void Awake()
     {
@@ -24,6 +25,9 @@ public class PlayerMovement2D : MonoBehaviour
     {
         if (controller is null) Debug.Log("No CharacterController2D set");
     }
+
+    public void DisbaleUserInput() => isDisabled = true;
+    public void EnableUserInput() => isDisabled = false;
 
     void Update()
     {
@@ -39,15 +43,20 @@ public class PlayerMovement2D : MonoBehaviour
 
     public void MovementListener(CallbackContext context)
     {
-        movement = context.ReadValue<Vector2>();
+        if(!isDisabled)
+            movement = context.ReadValue<Vector2>();
     }
 
     public void AttackListener(CallbackContext context)
     {
-        if (context.ReadValueAsButton() == true && context.performed == false && attackCooldown <= 0)
+        if (!isDisabled)
+        {
+            if (context.ReadValueAsButton() == true && context.performed == false && attackCooldown <= 0)
         {
             CombatController.Attack();
             attackCooldown = .2f;
+        }
+
         }
         
     }
