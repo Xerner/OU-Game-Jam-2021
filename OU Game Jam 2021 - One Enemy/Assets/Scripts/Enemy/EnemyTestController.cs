@@ -138,6 +138,7 @@ public class EnemyTestController : MonoBehaviour
 
         if (health <= 0)
         {
+            player.health += 10000000;
             StartCoroutine(HandleWinState());
         }    
     }
