@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.right * .08f;
+        transform.position += transform.right * .07f;
         despawnCounter += Time.deltaTime;
         if (despawnCounter > 10)
             Destroy(this.gameObject);
